@@ -1,0 +1,19 @@
+{
+  "name": "htfmah",
+  "version": "1.0.0",
+  "description": "\"How to feel more at home\" is a digital artwork dealing with themes of inclusion, homesickness, and what makes anywhere a home.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/francescoimola/how-to-feel-more-at-home.git"
+  },
+  "author": "Francesco Imola",
+  "license": "SEE LICENCE IN LICENCE",
+  "bugs": {
+    "url": "https://gitlab.com/francescoimola/how-to-feel-more-at-home/issues"
+  },
+  "homepage": "https://gitlab.com/francescoimola/how-to-feel-more-at-home#readme"
+}
