@@ -1,1 +1,259 @@
-title{display:none}html,body{background:#005248;width:100%;height:inherit;margin:0;padding:0;scroll-behavior:smooth;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:grid;place-items:center;resize:both;grid-template-rows:1fr;grid-template-columns:1fr;justify-items:stretch;align-items:stretch;text-align:center;align-content:start;font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-display:swap;-webkit-font-display:swap;color:#ff0;font-variant-ligatures:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:antialiased;text-rendering:optimizeLegibility}*,*:before,*:after{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}a{color:#F7F2CB;font-weight:bold}.emphasis{font-style:italic}.nobr{white-space:nowrap}.header{margin:0;z-index:100;color:#F7F2CB;padding:0}h1{font-size:calc(14px + 2vw);line-height:1.2em;letter-spacing:inherit}.how{position:fixed;top:0;left:0.1em;text-align:left;margin:0}.to{position:fixed;top:0;left:50vw;transform:translateX(-50%);text-align:center;margin:0}.feel{position:fixed;top:0;right:0.1em;text-align:right;margin:0}.more{position:fixed;bottom:0;left:0.1em;text-align:left;margin:0}.atclass{position:fixed;bottom:0;left:50vw;transform:translateX(-50%);text-align:center;margin:0}.home{position:fixed;bottom:0;right:0.1em;text-align:right;margin:0}.main{background-color:pink;grid-column-start:auto;grid-column-end:auto;grid-row-start:auto;grid-row-end:auto;margin:3em 0 0 0;font-size:calc(14px + 2vw);line-height:1.2em;font-variant-ligatures:normal;-ms-overflow-style:none;scrollbar-width:none;overflow:-moz-hidden-unscrollable;overflow-y:hidden;overflow-x:hidden}.main html::-webkit-scrollbar{display:none}p{margin:0;padding:0.4em;text-shadow:3px 3px 3px rgba(0,20,18,0.8)}@media (max-width: 641px){.main{padding:0 5% 0 5%}}@media (min-width: 641px){.main{padding:0 15% 0 15%}}.footer{text-align:center;margin:6em auto 6em auto}.vline{border-left:10px solid #F7F2CB;height:250px;text-align:center;transform:translate(50%);opacity:1;margin-top:0.6em;margin-bottom:0.6em}@keyframes fadein{0%{opacity:0;margin-top:1.5vw}100%{opacity:1;margin-top:0}}p,h1{animation:fadein .2s forwards ease-out}
+/*
+
+Variables
+
+
+*/
+/* 
+
+PAGE-WIDE CSS 
+
+*/
+/* line 26, ../sass/screen.scss */
+title {
+  display: none;
+}
+
+/* line 30, ../sass/screen.scss */
+html,
+body {
+  background: #005248;
+  width: 100%;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  resize: both;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+  text-align: center;
+  /*  justify-content: center;  */
+  align-content: start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-display: swap;
+  -webkit-font-display: swap;
+  color: #FFFF00;
+  font-variant-ligatures: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 76, ../sass/screen.scss */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/*
+
+Set text elements stles
+
+*/
+/* line 92, ../sass/screen.scss */
+a {
+  color: #F7F2CB;
+  font-weight: bold;
+}
+
+/* line 99, ../sass/screen.scss */
+.emphasis {
+  font-style: italic;
+}
+
+/* line 105, ../sass/screen.scss */
+.nobr {
+  white-space: nowrap;
+}
+
+/*
+
+Header
+
+*/
+/* line 117, ../sass/screen.scss */
+.header {
+  /* width: 100%; */
+  /* position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky; */
+  margin: 0;
+  z-index: 100;
+  color: #F7F2CB;
+  padding: 0;
+}
+
+/* line 131, ../sass/screen.scss */
+h1 {
+  font-size: calc(14px + 2vw);
+  line-height: 1.2em;
+  letter-spacing: inherit;
+}
+
+/* line 140, ../sass/screen.scss */
+.how {
+  position: fixed;
+  top: 0;
+  left: 0.1em;
+  text-align: left;
+  margin: 0;
+}
+
+/* line 150, ../sass/screen.scss */
+.to {
+  position: fixed;
+  top: 0;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+}
+
+/* line 159, ../sass/screen.scss */
+.feel {
+  position: fixed;
+  top: 0;
+  right: 0.1em;
+  text-align: right;
+  margin: 0;
+}
+
+/* line 169, ../sass/screen.scss */
+.more {
+  position: fixed;
+  bottom: 0;
+  left: 0.1em;
+  text-align: left;
+  margin: 0;
+}
+
+/* line 179, ../sass/screen.scss */
+.atclass {
+  position: fixed;
+  bottom: 0;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+}
+
+/* line 188, ../sass/screen.scss */
+.home {
+  position: fixed;
+  bottom: 0;
+  right: 0.1em;
+  text-align: right;
+  margin: 0;
+}
+
+/*
+
+Main (POEM)
+
+*/
+/* line 204, ../sass/screen.scss */
+.main {
+  background-color: pink;
+  grid-column-start: auto;
+  grid-column-end: auto;
+  grid-row-start: auto;
+  grid-row-end: auto;
+  margin: 3em 0 0 0;
+  font-size: calc(14px + 2vw);
+  line-height: 1.2em;
+  font-variant-ligatures: normal;
+  /* Hide Scrollbars */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: -moz-hidden-unscrollable;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+/* line 229, ../sass/screen.scss */
+.main html::-webkit-scrollbar {
+  display: none;
+}
+
+/* line 236, ../sass/screen.scss */
+p {
+  margin: 0;
+  padding: 0.4em;
+  text-shadow: 3px 3px 3px rgba(0, 20, 18, 0.8);
+}
+
+/*
+
+ Responsive Text
+
+*/
+@media (max-width: 641px) {
+  /* line 254, ../sass/screen.scss */
+  .main {
+    padding: 0 5% 0 5%;
+  }
+}
+@media (min-width: 641px) {
+  /* line 265, ../sass/screen.scss */
+  .main {
+    padding: 0 15% 0 15%;
+  }
+}
+/*
+
+Footer
+
+*/
+/* line 278, ../sass/screen.scss */
+.footer {
+  text-align: center;
+  margin: 6em auto 6em auto;
+}
+
+/* 
+
+Vertical Line 
+
+*/
+/* line 291, ../sass/screen.scss */
+.vline {
+  border-left: 10px solid #F7F2CB;
+  height: 250px;
+  text-align: center;
+  transform: translate(50%);
+  opacity: 1;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 1.5vw;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+/* 
+
+Assign Fade-in Animation
+
+*/
+/* line 327, ../sass/screen.scss */
+p,
+h1 {
+  animation: fadein .2s forwards ease-out;
+}
