@@ -1,3 +1,4 @@
 config.js
-images
-sass-cache
+.images
+.sass-cache
+.sass
