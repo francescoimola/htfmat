@@ -1,4 +1,5 @@
 config.js
-.images
+images
 .sass-cache
-.sass
+sass
+nodeapp.js
