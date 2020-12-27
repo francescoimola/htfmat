@@ -10,49 +10,75 @@ let elem2 = document.getElementsByClassName("myOtherPicture");
 
 // Test for touch events support and if not supported, attach .no-touch class to the HTML tag.
 if (!("ontouchstart" in document.documentElement)) {
-    document.documentElement.className += " no-touch";
+  document.documentElement.className += " no-touch";
 }
 
 // All jQuery code goes here 
 define(['jquery'], function ($) {
 
-    // Preload image array
-    $(document).ready( function()  {
-
-        // This message displays when the entire document has loaded
-        /* console.log("document is ready"); */
-
-        function preload(imageArray, index) {
-            index = index || 0;
-            if (imageArray && imageArray.length > index) {
-                var img = new Image();
-                img.onload = function () {
-                    preload(imageArray, index + 1);
-                }
-                img.src = jpgarray[index];
-            }
-        }
-        // images is an array with image metadata 
-        preload(jpgarray);
-
-    });
-
-    // Confirm code has loaded
+  // Confirm code has loaded
   /*   console.log("jQuery code has loaded");
- */
-    // Draw lines between paragraphs
-    $(".vline").insertAfter(".paragraph");
+   */
+  // Draw lines between paragraphs
+  $(".vline").insertAfter(".paragraph");
 
-    // Insert images from array into image block on hover
-    $(".how, .to, .feel, .more, .at, .home").hover(function () {
-        'use strict';
-        /* console.log("hovered over header"); */
-        for (var i = 0; i < elem1.length; i += 1) {
-            let rando1 = Math.floor(Math.random() * jpgarray.length);
-            let rando2 = Math.floor(Math.random() * jpgarray.length);
-            elem1[i].src = jpgarray[rando1];
-            elem1[i].src = jpgarray[rando2];
-            $(this).css('cursor', 'pointer');
+  // A solution to the lack of hover on touch devices.
+  $(document).on("touchstart, click", ".how, .to, .feel, .more, .at, .home", function (e) {
+    if (!$(this).hasClass("hover")) {
+      e.preventDefault();
+    }
+    $(".how, .to, .feel, .more, .at, .home").not($(this).toggleClass("hover")).removeClass("hover");
+  });
+
+  // Preload image array
+  $(document).ready(function () {
+
+    // This message displays when the entire document has loaded
+    /* console.log("document is ready"); */
+
+    function preload(imageArray, index) {
+      index = index || 0;
+      if (imageArray && imageArray.length > index) {
+        var img = new Image();
+        img.onload = function () {
+          preload(imageArray, index + 1);
         }
-    });
+        img.src = jpgarray[index];
+      }
+    }
+    // images is an array with image metadata 
+    preload(jpgarray);
+
+  });
+
+  // Insert images from array into image block on hover
+  $(".how, .to, .feel, .more, .at, .home").hover(function () {
+    'use strict';
+    /* console.log("hovered over header"); */
+    for (var i = 0; i < elem1.length; i += 1) {
+      let rando1 = Math.floor(Math.random() * jpgarray.length);
+      let rando2 = Math.floor(Math.random() * jpgarray.length);
+      elem1[i].src = jpgarray[rando1];
+      elem1[i].src = jpgarray[rando2];
+      $(this).css('cursor', 'pointer');
+    }
+  });
 });
+
+/* 
+// Setting Up Are.na Js (Are.na API)
+
+var mytoken = config.MY_API_ACCESS_TOKEN;
+
+console.log("fetched access token")
+
+const Arena = require(["are.na"], function (arena) {
+  console.log("message from inside the require function");
+});
+
+let arena = new Arena({
+  accessToken: mytoken
+});
+
+console.log("You have accessed are.na");
+ */
