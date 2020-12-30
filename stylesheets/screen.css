@@ -1,1 +1,392 @@
-title{display:none}html,body{background:#F7F2CB;width:100%;height:inherit;margin:0;padding:0;scroll-behavior:smooth;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:grid;place-items:center;resize:both;grid-template-rows:1fr;grid-template-columns:1fr;justify-items:stretch;align-items:stretch;text-align:center;align-content:start;font-family:Arial, Helvetica, sans-serif;font-weight:bold;font-display:swap;-webkit-font-display:swap;color:#ff0;font-variant-ligatures:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:antialiased;text-rendering:optimizeLegibility}*,*:before,*:after{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}a{color:#005248;font-weight:bold}.emphasis{font-style:italic}.nobr{white-space:nowrap}.header{margin:0;color:#005248;padding:0}h1{font-size:calc(14px + 2vw);line-height:1.2em;letter-spacing:inherit}img{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);height:auto;z-index:1}.how{position:fixed;top:0;left:0.1em;text-align:left;margin:0;z-index:3}.to{position:fixed;top:0;left:50vw;transform:translateX(-50%);text-align:center;margin:0;z-index:3}.feel{position:fixed;top:0;right:0.1em;text-align:right;margin:0;z-index:3}.more{position:fixed;bottom:0;left:0.1em;text-align:left;margin:0;z-index:3}.atclass{position:fixed;bottom:0;left:50vw;transform:translateX(-50%);text-align:center;margin:0;z-index:3}.home{position:fixed;bottom:0;right:0.1em;text-align:right;margin:0;z-index:3}.main{z-index:2;grid-column-start:auto;grid-column-end:auto;grid-row-start:auto;grid-row-end:auto;margin:3em 0 0 0;font-size:calc(14px + 2vw);line-height:1.2em;font-variant-ligatures:normal;-ms-overflow-style:none;scrollbar-width:none;overflow:-moz-hidden-unscrollable;overflow-y:hidden;overflow-x:hidden}.main html::-webkit-scrollbar{display:none}p{margin:0;padding:0.4em;text-shadow:3px 3px 3px rgba(0,20,18,0.8)}@media (max-width: 641px){.main{padding:0 5% 0 5%}.footer{padding:0 5% 0 5%}img{width:50%}}@media (min-width: 641px){.main{padding:0 15% 0 15%}.footer{padding:0 15% 0 15%}img{width:25%}}.footer{text-align:center;color:#005248;margin:6em auto 6em auto}.vline{border-left:1px solid #F7F2CB;height:200px;text-align:center;transform:translate(50%);opacity:0;margin-top:0.6em;margin-bottom:0.6em}@keyframes fadein{0%{opacity:0;margin-top:1.5vw}100%{opacity:1;margin-top:0}}p,h1{animation:fadein .2s forwards ease-out}.how:hover+img,.how.hover+img,.to:hover+img,.to.hover+img,.feel:hover+img,.feel.hover+img,.more:hover+img,.more.hover+img,.atclass:hover+img,.atclass.hover+img,.home:hover+img,.home.hover+img{display:block}.myframe{width:33vw;height:38vw;margin:1vw;overflow-x:auto;overflow-y:hidden;resize:both}.fullframe{width:100vw;height:100vh;margin:1vw;overflow-x:auto;overflow-y:auto;resize:both}
+/*
+
+Variables
+
+
+*/
+/* 
+
+PAGE-WIDE CSS 
+
+*/
+/* line 30, ../sass/screen.scss */
+title {
+  display: none;
+}
+
+/* line 36, ../sass/screen.scss */
+html,
+body {
+  background: #F7F2CB;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overscroll-behavior: auto;
+  scroll-behavior: smooth;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  resize: both;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+  text-align: center;
+  justify-content: center;
+  align-content: start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-display: swap;
+  -webkit-font-display: swap;
+  color: #FFFF00;
+  font-variant-ligatures: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 94, ../sass/screen.scss */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* 
+
+Play Button 
+
+*/
+/* line 111, ../sass/screen.scss */
+.container {
+  display: inherit;
+  visibility: visible;
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+}
+
+/* line 126, ../sass/screen.scss */
+#playBut {
+  /*  border: 1px solid red;*/
+  display: inline-block;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+/*
+
+Main Text styles
+
+*/
+/* line 142, ../sass/screen.scss */
+a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+/* line 151, ../sass/screen.scss */
+footer > small,
+footer small {
+  font-size: calc(8px + 1vw);
+  line-height: initial;
+}
+
+/* line 160, ../sass/screen.scss */
+i {
+  font-style: italic;
+}
+
+/* line 167, ../sass/screen.scss */
+.nobr {
+  white-space: nowrap;
+}
+
+/*
+
+Header
+
+*/
+/* line 179, ../sass/screen.scss */
+header,
+.header, header h1 {
+  color: #005248;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2em;
+  letter-spacing: inherit;
+}
+
+/* line 194, ../sass/screen.scss */
+h1.how {
+  position: fixed;
+  top: 0.1em;
+  left: 0.1em;
+  text-align: left;
+  z-index: 4;
+}
+
+/* line 204, ../sass/screen.scss */
+h1.to {
+  position: fixed;
+  top: 0.1em;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+  z-index: 4;
+}
+
+/* line 216, ../sass/screen.scss */
+h1.feel {
+  position: fixed;
+  top: 0.1em;
+  right: 0.1em;
+  text-align: right;
+  margin: 0;
+  z-index: 4;
+}
+
+/* line 227, ../sass/screen.scss */
+h1.more {
+  position: fixed;
+  bottom: 0.1em;
+  left: 0.1em;
+  text-align: left;
+  margin: 0;
+  z-index: 4;
+}
+
+/* line 238, ../sass/screen.scss */
+h1.atclass {
+  position: fixed;
+  bottom: 0.1em;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+  z-index: 4;
+}
+
+/* line 250, ../sass/screen.scss */
+h1.home {
+  position: fixed;
+  bottom: 0.1em;
+  right: 0.1em;
+  text-align: right;
+  margin: 0;
+  z-index: 4;
+}
+
+/* 
+
+Position image
+
+*/
+/* line 267, ../sass/screen.scss */
+header img {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  float: left;
+  right: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/*
+
+Main (POEM)
+
+*/
+/* line 289, ../sass/screen.scss */
+.main {
+  visibility: hidden;
+  display: none;
+  z-index: 3;
+  animation-delay: 0.2s;
+  grid-column-start: auto;
+  grid-column-end: auto;
+  grid-row-start: auto;
+  grid-row-end: auto;
+  margin: 3em 0 0 0;
+  font-size: calc(14px + 2vw);
+  line-height: 1.2em;
+  font-variant-ligatures: normal;
+}
+
+/* line 311, ../sass/screen.scss */
+p {
+  margin: 0;
+  padding: 0.4em;
+  text-shadow: 3px 3px 3px rgba(0, 20, 18, 0.8);
+}
+
+/*
+
+Set up Responsive Text
+
+*/
+@media (max-width: 641px) {
+  /* line 330, ../sass/screen.scss */
+  header h1, .header h1 {
+    font-size: calc(14px + 4vw);
+  }
+
+  /* line 337, ../sass/screen.scss */
+  header img, .header img {
+    width: 50%;
+    height: auto;
+  }
+
+  /* line 345, ../sass/screen.scss */
+  .main {
+    padding: 0 5% 0 5%;
+  }
+
+  /* line 352, ../sass/screen.scss */
+  footer,
+  .footer {
+    padding: 0 5% 0 5%;
+  }
+}
+@media (min-width: 641px) {
+  /* line 366, ../sass/screen.scss */
+  header h1, .header h1 {
+    font-size: calc(14px + 3vw);
+  }
+
+  /* line 373, ../sass/screen.scss */
+  header img, .header img {
+    width: 25%;
+  }
+
+  /* line 380, ../sass/screen.scss */
+  .main {
+    padding: 0 15% 0 15%;
+  }
+
+  /* line 387, ../sass/screen.scss */
+  footer,
+  .footer {
+    padding: 0 15% 0 15%;
+  }
+}
+/* 
+
+Footer 
+
+*/
+/* line 403, ../sass/screen.scss */
+footer,
+.footer {
+  background-color: #F7F2CB;
+  width: 100%;
+  text-align: center;
+  color: #005248;
+  margin: 0 auto 8em auto;
+  padding: 0;
+  z-index: 2;
+}
+
+/* 
+
+Vertical Line 
+
+*/
+/* line 422, ../sass/screen.scss */
+.vline {
+  border-left: 1px solid #F7F2CB;
+  height: 200px;
+  text-align: center;
+  transform: translate(50%);
+  opacity: 0;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 1.5vw;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 1.5vw;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+/* 
+
+Assign Fade-in Animation
+
+*/
+/* line 478, ../sass/screen.scss */
+p,
+h1 {
+  -webkit-animation: fadein .2s forwards ease-out;
+  animation: fadein .2s forwards ease-out;
+}
+
+/* 
+
+Hover 
+
+*/
+/* line 493, ../sass/screen.scss */
+h1.how:hover,
+h1.how.hover,
+h1.to:hover,
+h1.to.hover,
+h1.feel:hover,
+h1.feel.hover,
+h1.more:hover,
+h1.more.hover,
+h1.atclass:hover,
+h1.atclass.hover,
+h1.home:hover,
+h1.home.hover {
+  font-style: italic;
+}
+
+/* line 511, ../sass/screen.scss */
+.how:hover + .myPicture,
+.how.hover + .myPicture,
+.to:hover + .myPicture,
+.to.hover + .myPicture,
+.feel:hover + .myPicture,
+.feel.hover + .myPicture,
+.more:hover + .myPicture,
+.more.hover + .myPicture,
+.atclass:hover + .myPicture,
+.atclass.hover + .myPicture,
+.home:hover + .myPicture,
+.home.hover + .myPicture {
+  display: block;
+}
