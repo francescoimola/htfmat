@@ -8,9 +8,7 @@ console.log("music.js has loaded")
 
 var myp5;
 
-//Tone.js code
-
-
+//Tone.js and p5.js code
 var sketch = function (p) {
   // Master volume in decibels
   const volume = -2;
@@ -26,7 +24,7 @@ var sketch = function (p) {
   // Preloads JSON file
   p.preload = function () {
     // loads a JSON as an object
-    colorJSON = p.loadJSON("riso-colors.json");
+    colorJSON = p.loadJSON("./tools/crayola.json");
   };
 
   // Create a new canvas to the browser size
@@ -74,12 +72,13 @@ var sketch = function (p) {
   };
 
   // Update mouse position and play a sound
-  p.mousePressed = function () {
+  p.touchStarted = function (e) {
     // First time we click...
     if (!active) {
       active = true;
       // Clear background to white to create an initial flash
       p.background(bkgcol);
+      return false;
     }
 
     // choose a note
@@ -102,7 +101,7 @@ var sketch = function (p) {
     p.fill(curColor);
     p.textAlign(p.CENTER, p.CENTER);
     p.textFont("arial");
-    p.text(curColorData.pantone, x, y + size / 2 + 20);
+    /* p.text(curColorData.pantone, x, y + size / 2 + 20); */
     p.text(curColorData.name, x, y - size / 2 - 20);
     if (type === 'circle') {
       p.ellipseMode(p.CENTER);
@@ -114,6 +113,7 @@ var sketch = function (p) {
     } else if (type === 'polygon') {
       p.polygon(x, y, size * 0.5, p.floor(p.random(3, 10)), p.random(-1, 1) * p.PI * 2);
     }
+    e.preventDefault()
   };
 
   // Draw a basic polygon, handles triangles, squares, pentagons, etc
@@ -130,8 +130,12 @@ var sketch = function (p) {
 
 };
 
-StartAudioContext(Tone.context, '#playBut').then(function () {
-  myp5 = new p5(sketch);
+//Start tone and p5
+$("#myButton").click(function (e) {
+  StartAudioContext(Tone.context, '#playBut').then(function (e) {
+    myp5 = new p5(sketch);
+    return false;
+  });
+  e.preventDefault();
 });
 
-console.log("music.js has finished loading")
