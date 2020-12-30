@@ -82,7 +82,7 @@ var sketch = function (p) {
   p.draw = function () {};
 
   // Update mouse position and play a sound
-  p.mousePressed = function (e) {
+  p.touchStarted = function (e) {
     // First time we click...
     if (!active) {
       active = true;
