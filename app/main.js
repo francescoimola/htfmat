@@ -4,8 +4,6 @@ $("#myButton").click(function (e) {
   $("#cont").css("visibility", "hidden");
   $("#poem").css("display", "inherit");
   $("#poem").css("visibility", "visible");
-  e.preventDefault();
-  return false;
 });
 
 //Set up array of images to display
@@ -46,13 +44,9 @@ $(".how, .to, .feel, .more, .at, .home").click(function (e) {
   };
   $("#pic").css("display", "inherit");
   $("#pic").css("visibility", "visible");
-  e.preventDefault();
-  return false;
 });
 
 $("#scrollme").click(function(e) {
-  e.preventDefault();
   var aid = $(this).attr("href");
   $("html,body").animate({scrollTop: $(aid).offset().top},"slow");
-  return false;
 });

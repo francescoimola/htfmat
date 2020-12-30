@@ -13,18 +13,29 @@ var sketch = function (p) {
   // Master volume in decibels
   const volume = -2;
 
-  // The synth we'll use for audio
+  // The synth we"ll use for audio
   let synth;
   let risoColors;
   let colorJSON;
   let active = false;
   let bkgcol;
   var canvas;
+  let newarr;
 
   // Preloads JSON file
   p.preload = function () {
     // loads a JSON as an object
     colorJSON = p.loadJSON("./tools/crayola.json");
+
+    //Preload scale from which to play notes
+    let myscale = p.random(Tonal.Scale.names());
+    console.log(myscale);
+    let musnotes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+    mynote = musnotes => {
+      return musnotes.map(e => e + p.int(p.random(3,5)) + " " + myscale);
+    };
+    newarr = mynote(musnotes);
+    console.log(newarr);
   };
 
   // Create a new canvas to the browser size
@@ -47,14 +58,14 @@ var sketch = function (p) {
     // Setup a synth with ToneJS
     synth = new Tone.Synth({
       oscillator: {
-        type: 'sine'
+        type: "sine"
       }
     });
 
     // Wire up our nodes:
     // synth->master
 
-    var feedbackDelay = new Tone.FeedbackDelay('8n', 0.6);
+    var feedbackDelay = new Tone.FeedbackDelay("8n", 0.6);
     synth.connect(feedbackDelay);
     synth.connect(Tone.Master);
     feedbackDelay.connect(Tone.Master);
@@ -68,22 +79,20 @@ var sketch = function (p) {
   };
 
   // Render loop that draws shapes with p5
-  p.draw = function () {
-  };
+  p.draw = function () {};
 
   // Update mouse position and play a sound
-  p.touchStarted = function (e) {
+  p.mousePressed = function (e) {
     // First time we click...
     if (!active) {
       active = true;
       // Clear background to white to create an initial flash
       p.background(bkgcol);
-      return false;
     }
 
     // choose a note
-    const note = p.random(["A3", "C4", "D4", "E3", "G4"]);
-    synth.triggerAttackRelease(note, '8n');
+    const note = p.random(newarr);
+    synth.triggerAttackRelease(note, "8n");
 
     const dim = p.min(p.width, p.height);
     const x = p.mouseX;
@@ -93,7 +102,7 @@ var sketch = function (p) {
     const curColorData = p.random(risoColors);
     const curColor = p.color(curColorData.hex);
     const size = p.max(10, p.abs(p.randomGaussian(dim / 8, dim / 8)));
-    const type = p.random(['circle', 'line', 'polygon']);
+    const type = p.random(["circle", "line", "polygon"]);
     curColor.setAlpha(255 * 0.9);
     // background(curColor, 0.1); 
     // curColor.setAlpha(0.1); 
@@ -103,18 +112,19 @@ var sketch = function (p) {
     p.textFont("arial");
     /* p.text(curColorData.pantone, x, y + size / 2 + 20); */
     p.text(curColorData.name, x, y - size / 2 - 20);
-    if (type === 'circle') {
+    if (type === "circle") {
       p.ellipseMode(p.CENTER);
       p.circle(x, y, size);
-    } else if (type === 'line') {
+    } else if (type === "line") {
       p.strokeWeight(dim * 0.01);
       p.stroke(curColor);
       p.polygon(x, y, size * 0.5, 2, p.random(-1, 1) * p.PI * 2);
-    } else if (type === 'polygon') {
+    } else if (type === "polygon") {
       p.polygon(x, y, size * 0.5, p.floor(p.random(3, 10)), p.random(-1, 1) * p.PI * 2);
     }
-    e.preventDefault()
+    return false;
   };
+
 
   // Draw a basic polygon, handles triangles, squares, pentagons, etc
   p.polygon = function (x, y, radius, sides = 3, angle = 0) {
@@ -132,10 +142,7 @@ var sketch = function (p) {
 
 //Start tone and p5
 $("#myButton").click(function (e) {
-  StartAudioContext(Tone.context, '#playBut').then(function (e) {
+  StartAudioContext(Tone.context, "#playBut").then(function (e) {
     myp5 = new p5(sketch);
-    return false;
   });
-  e.preventDefault();
 });
-
