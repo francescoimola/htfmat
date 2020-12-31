@@ -22,7 +22,7 @@ let elem = document.getElementsByClassName("myPicture");
 let el = elem.length;
 
 //Draw lines between paragraphs
-$(".vline").insertAfter(".paragraph");
+$(".vline").insertAfter("p");
 
 //Preload image array
 function preload(imageArray, index) {

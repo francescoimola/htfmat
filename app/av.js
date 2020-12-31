@@ -84,23 +84,22 @@ var sketch = function (p) {
   // Render loop that draws shapes with p5
   p.draw = function () {};
 
-  // Update mouse position and play a sound
-  window.addEventListener("touchstart", function () {
-    // the user touched the screen!
-    if (!active) {
-      active = true;
-      // Clear background to white to create an initial flash
-      p.background(bkgcol);
-    }
+  $("body").click(function () {
+    console.log("ciao");
+    chooseNote();
+    drawShape();
+  });
 
+  function chooseNote() {
     //choose a note
     const note = p.random(newarr);
     synth.triggerAttackRelease(note, "8n");
+  };
 
+  function drawShape() {
     const dim = p.min(p.width, p.height);
     const x = p.mouseX;
     const y = p.mouseY;
-
     //Retrieves data from JSON and turn it into text
     p.noStroke();
     const curColorData = p.random(risoColors);
@@ -127,8 +126,18 @@ var sketch = function (p) {
     } else if (type === "polygon") {
       p.polygon(x, y, size * 0.5, p.floor(p.random(3, 10)), p.random(-1, 1) * p.PI * 2);
     }
+  };
+/* 
+  // Update mouse position and play a sound
+  window.addEventListener("touchstart", function () {
+    // the user touched the screen!
+    if (!active) {
+      active = true;
+      // Clear background to white to create an initial flash
+      p.background(bkgcol);
+    };
   });
-
+ */
   // Draw a basic polygon, handles triangles, squares, pentagons, etc
   p.polygon = function (x, y, radius, sides = 3, angle = 0) {
     p.beginShape();
