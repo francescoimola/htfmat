@@ -1,10 +1,12 @@
+"use strict";
+
 /* 
 
 AUDIO 
 
 */
 
-console.log("music.js has loaded")
+console.log("music.js has loaded");
 
 var myp5;
 
@@ -13,11 +15,13 @@ var sketch = function (p) {
   // Master volume in decibels
   const volume = -2;
 
-  // The synth we"ll use for audio
+  // The synth we will use for audio
   let synth;
   let risoColors;
   let colorJSON;
   let active = false;
+
+  //Other variables we will use later
   let bkgcol;
   var canvas;
   let newarr;
@@ -32,14 +36,15 @@ var sketch = function (p) {
     console.log(myscale);
     let musnotes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
     mynote = musnotes => {
-      return musnotes.map(e => e + p.int(p.random(3,5)) + " " + myscale);
+      return musnotes.map(e => e + p.int(p.random(3, 5)) + " " + myscale);
     };
+    //This is your list of playble notes self-generated everytime you reload the page
     newarr = mynote(musnotes);
-    console.log(newarr);
   };
 
   // Create a new canvas to the browser size
   p.setup = function () {
+    //Create canvas and style it in the background
     canvas = p.createCanvas(window.innerWidth, window.innerHeight);
     canvas.style("display: inherit");
     canvas.position(0, 0);
@@ -50,8 +55,6 @@ var sketch = function (p) {
     // unpack the JSON object as an array
     risoColors = Object.values(colorJSON);
 
-    console.log(p.random(risoColors));
-
     // Make the volume quieter
     Tone.Master.volume.value = volume;
 
@@ -59,17 +62,19 @@ var sketch = function (p) {
     synth = new Tone.Synth({
       oscillator: {
         type: "sine"
-      }
+      },
     });
 
     // Wire up our nodes:
     // synth->master
 
+    //Make audio connections
     var feedbackDelay = new Tone.FeedbackDelay("8n", 0.6);
     synth.connect(feedbackDelay);
     synth.connect(Tone.Master);
     feedbackDelay.connect(Tone.Master);
 
+    //Sets the frame rate
     p.frameRate(30);
   };
 
@@ -82,15 +87,15 @@ var sketch = function (p) {
   p.draw = function () {};
 
   // Update mouse position and play a sound
-  p.touchStarted = function (e) {
-    // First time we click...
+  window.addEventListener("touchstart", function () {
+    // the user touched the screen!
     if (!active) {
       active = true;
       // Clear background to white to create an initial flash
       p.background(bkgcol);
     }
 
-    // choose a note
+    //choose a note
     const note = p.random(newarr);
     synth.triggerAttackRelease(note, "8n");
 
@@ -98,6 +103,7 @@ var sketch = function (p) {
     const x = p.mouseX;
     const y = p.mouseY;
 
+    //Retrieves data from JSON and turn it into text
     p.noStroke();
     const curColorData = p.random(risoColors);
     const curColor = p.color(curColorData.hex);
@@ -110,7 +116,8 @@ var sketch = function (p) {
     p.fill(curColor);
     p.textAlign(p.CENTER, p.CENTER);
     p.textFont("arial");
-    /* p.text(curColorData.pantone, x, y + size / 2 + 20); */
+
+    // p.text(curColorData.pantone, x, y + size / 2 + 20); 
     p.text(curColorData.name, x, y - size / 2 - 20);
     if (type === "circle") {
       p.ellipseMode(p.CENTER);
@@ -122,14 +129,12 @@ var sketch = function (p) {
     } else if (type === "polygon") {
       p.polygon(x, y, size * 0.5, p.floor(p.random(3, 10)), p.random(-1, 1) * p.PI * 2);
     }
-    return false;
-  };
-
+  });
 
   // Draw a basic polygon, handles triangles, squares, pentagons, etc
   p.polygon = function (x, y, radius, sides = 3, angle = 0) {
     p.beginShape();
-    for (let i = 0; i < sides; i++) {
+    for (let i = 0; i < sides; i += 1) {
       const a = angle + p.TWO_PI * (i / sides);
       let sx = x + p.cos(a) * radius;
       let sy = y + p.sin(a) * radius;
