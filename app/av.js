@@ -1,13 +1,7 @@
-/* 
-
-AUDIO 
-
-*/
-console.log("av.js has loaded");
-
-jQuery.noConflict();
 // Use jQuery via jQuery() instead of via $()
+jQuery.noConflict();
 
+//Define variable to place the sketch inside it later
 var myp5;
 
 //Tone.js and p5.js code
@@ -103,8 +97,7 @@ var sketch = function (p) {
     } else if (r === "soundshape") {
       drawShape();
       chooseNote();
-    } else {
-    };
+    } else {};
   });
 
   function chooseNote() {
@@ -127,7 +120,7 @@ var sketch = function (p) {
     const curColor = p.color(curColorData.hex);
     const size = p.max(10, p.abs(p.randomGaussian(dim / 8, dim / 8)));
     const type = p.random(["circle", "line", "polygon"]);
-    curColor.setAlpha(255 * 0.9); 
+    curColor.setAlpha(255 * 0.9);
 
     //Draws text
     p.fill(curColor);
@@ -163,8 +156,7 @@ var sketch = function (p) {
 
 //Starts Tone and p5
 jQuery(".playBut").click(function () {
-  console.log("ciao");
-  StartAudioContext(Tone.context, "#playBut").then(function () {
+  StartAudioContext(Tone.context, this).then(function () {
     myp5 = new p5(sketch);
   });
   return false;
