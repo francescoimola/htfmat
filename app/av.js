@@ -3,8 +3,10 @@
 AUDIO 
 
 */
+console.log("av.js has loaded");
 
-console.log("music.js has loaded");
+jQuery.noConflict();
+// Use jQuery via jQuery() instead of via $()
 
 var myp5;
 
@@ -36,8 +38,7 @@ var sketch = function (p) {
   //Preload musical scale
   function preloadScale() {
     //Preload scale from which to play notes
-    let myscale = p.random(Tonal.Scale.names());
-    console.log(myscale);
+    let myscale = p.random(Tonal.Scale.names())
     let musnotes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
     mynote = musnotes => {
       return musnotes.map(e => e + p.int(p.random(3, 5)) + " " + myscale);
@@ -59,13 +60,12 @@ var sketch = function (p) {
 
   //Canvas settings
   function makeCanvas() {
-    //Create canvas and style it in the background
+    //Create canvas and place it at the back of the bage
     canvas = p.createCanvas(window.innerWidth, window.innerHeight);
     canvas.style("display: inherit");
     canvas.position(0, 0);
     canvas.style("z-index:-3");
     bkgcol = p.color("rgba(247, 242, 203, 0.1)");
-    p.background(bkgcol);
   };
 
   //Create synth and make audio connections
@@ -93,33 +93,30 @@ var sketch = function (p) {
   p.draw = function () {};
 
   //Draw shapes and play sound on click of body
-  $("body").click(function () {
-    var r = p.random(["sound", "shape", "soundshape"]);
+  jQuery("body").click(function () {
+    const r = p.random(["sound", "shape", "soundshape"]);
 
     if (r === "sound") {
       chooseNote();
     } else if (r === "shape") {
       drawShape();
     } else if (r === "soundshape") {
-      chooseNote();
       drawShape();
+      chooseNote();
     } else {
     };
   });
 
   function chooseNote() {
     //choose a note
-    const note = p.random(newarr);
-    synth.triggerAttackRelease(note, "8n");
+    var n = p.random(newarr);
+    const note = n.slice(0, 3);
+    const l = p.random(["4n", "8n", "16n"]);
+    synth.triggerAttackRelease(note, l);
   };
 
   function drawShape() {
     // the user touched the screen!
-    if (!active) {
-      active = true;
-      // Clear background to white to create an initial flash
-      p.background(bkgcol);
-    };
     const dim = p.min(p.width, p.height);
     const x = p.mouseX;
     const y = p.mouseY;
@@ -130,9 +127,7 @@ var sketch = function (p) {
     const curColor = p.color(curColorData.hex);
     const size = p.max(10, p.abs(p.randomGaussian(dim / 8, dim / 8)));
     const type = p.random(["circle", "line", "polygon"]);
-    curColor.setAlpha(255 * 0.9);
-    // background(curColor, 0.1); 
-    // curColor.setAlpha(0.1); 
+    curColor.setAlpha(255 * 0.9); 
 
     //Draws text
     p.fill(curColor);
@@ -167,7 +162,8 @@ var sketch = function (p) {
 };
 
 //Starts Tone and p5
-$("#myButton").click(function () {
+jQuery(".playBut").click(function () {
+  console.log("ciao");
   StartAudioContext(Tone.context, "#playBut").then(function () {
     myp5 = new p5(sketch);
   });
