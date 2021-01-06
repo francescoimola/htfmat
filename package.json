@@ -2,9 +2,8 @@
   "name": "htfmat",
   "version": "1.0.0",
   "description": "\"How to feel more at home\" is a digital artwork dealing with themes of inclusion, homesickness, and what makes anywhere a home.",
-  "main": "app.js",
+  "main": "app/av.js",
   "directories": {
-    "lib": "lib"
   },
   "dependencies": {
     "startaudiocontext": "^1.2.1",
@@ -19,8 +18,8 @@
     "url": "git+https://github.com/francescoimola/htfmat.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Francesco Imola",
+  "license": "",
   "bugs": {
     "url": "https://github.com/francescoimola/htfmat/issues"
   },
