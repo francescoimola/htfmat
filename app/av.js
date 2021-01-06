@@ -41,8 +41,8 @@ startAll() && jQuery(".vline").insertAfter("p");
 
 //This JavaScript function always returns a random number between min (included) and max (excluded)
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
-}
+  return Math.floor(Math.random() * (max - min)) + min;
+};
 
 //Global preload functions
 function preloadScale() {
@@ -51,7 +51,7 @@ function preloadScale() {
   const myscale = scalenames[Math.floor(Math.random() * scalenames.length)];
   const musnotes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
   let mynote = musnotes => {
-    return musnotes.map(e => e + getRndInteger(3,6) + " " + myscale);
+    return musnotes.map(e => e + getRndInteger(3, 6) + " " + myscale);
   };
   //This is your list of playble notes self-generated everytime you reload the page
   newarr = mynote(musnotes);
@@ -85,7 +85,7 @@ let sketch = function (p) {
     // loads a JSON as an object
     colorJSON = p.loadJSON("./tools/crayola.json");
     preloadAll();
-  }
+  };
 
   //Canvas settings
   function makeCanvas() {
@@ -102,7 +102,7 @@ let sketch = function (p) {
     synth = new Tone.Synth({
       oscillator: {
         type: "sine"
-      },
+      }
     });
 
     //Make audio connections (Wire up our nodes: synth->master)
@@ -147,13 +147,12 @@ let sketch = function (p) {
 
   function playNote() {
     //choose a note
-    let n;
     if (Array.isArray(newarr)) {
-      n = p.random(newarr);
+      let n = p.random(newarr);
+      let note = n.slice(0, 3);
+      const l = p.random(["4n", "8n", "16n"]);
+      synth.triggerAttackRelease(note, l);
     };
-    let note = n.slice(0, 3);
-    const l = p.random(["4n", "8n", "16n"]);
-    synth.triggerAttackRelease(note, l);
   };
 
   //Draw shape when the user touches the screen
@@ -222,4 +221,4 @@ function ImgOnClick(headelems) {
     jQuery(".myPicture").css("visibility", "visible");
   });
 };
-preloadAll() && ImgOnClick(".how, .to, .feel, .more, .at");
+ImgOnClick(".how, .to, .feel, .more, .at");
