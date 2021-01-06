@@ -2,8 +2,8 @@
 jQuery.noConflict();
 
 //Global variables
-let jpgarray;
-let elem;
+let jpgarray = [];
+let elem = [];
 let myp5;
 let newarr;
 let rnumber;
@@ -66,6 +66,7 @@ function preloadAll() {
   jpgarray = arr1.concat(arr2, arr3, arr4);
   //Retrieves existing images blocks
   elem = document.getElementsByClassName("myPicture");
+  //Preloads Tone.Scale
   startAll() && preloadScale();
   return true
 };
@@ -212,13 +213,18 @@ jQuery(".playBut").click(function () {
 //Display images on click
 function ImgOnClick(headelems) {
   // Insert images from array into image block on click
-  jQuery(headelems).click(function () {
-    for (let i = 0; i < elem.length; i += 1) {
-      let rando = Math.floor(Math.random() * jpgarray.length);
-      elem[i].src = jpgarray[rando];
-    };
-    jQuery(".myPicture").css("display", "inherit");
-    jQuery(".myPicture").css("visibility", "visible");
-  });
+  if (elem.length !== "" && jpgarray.length !== "") {
+    jQuery(headelems).click(function () {
+      for (let i = 0; i < elem.length; i += 1) {
+        let rando = Math.floor(Math.random() * jpgarray.length);
+        elem[i].src = jpgarray[rando];
+      };
+      jQuery(".myPicture").css("display", "inherit");
+      jQuery(".myPicture").css("visibility", "visible");
+    });
+    return true
+  } else {
+    return false
+  }
 };
 ImgOnClick(".how, .to, .feel, .more, .at");
