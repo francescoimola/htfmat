@@ -75,7 +75,7 @@ function preloadAll() {
 let sketch = function (p) {
 
   // Set volume in decibels
-  const volume = -2;
+  const volume = -10;
   Tone.Master.volume.value = volume;
   //Variables for The synth we will use
   let synth;
@@ -98,13 +98,14 @@ let sketch = function (p) {
   };
 
   //Create synth and make audio connections
+  const limiter = new Tone.Limiter(-2).toDestination();
   function synthandConnect() {
     // Setup a synth with ToneJS
     synth = new Tone.Synth({
       oscillator: {
         type: "sine"
       }
-    });
+    }).connect(limiter);
 
     //Make audio connections (Wire up our nodes: synth->master)
     let feedbackDelay = new Tone.FeedbackDelay("8n", 0.6);
