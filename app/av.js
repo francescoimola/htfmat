@@ -71,6 +71,25 @@ function preloadAll() {
   return true
 };
 
+//Display images on click
+function ImgOnClick(headelems) {
+  // Insert images from array into image block on click
+  if (elem.length !== "" && jpgarray.length !== "") {
+    jQuery(headelems).click(function () {
+      for (let i = 0; i < elem.length; i += 1) {
+        let rando = Math.floor(Math.random() * jpgarray.length);
+        elem[i].src = jpgarray[rando];
+      };
+      jQuery(".myPicture").css("display", "inherit");
+      jQuery(".myPicture").css("visibility", "visible");
+    });
+    return true
+  } else {
+    return false
+  }
+};
+ImgOnClick(".how, .to, .feel, .more, .at");
+
 //Tone.js and p5.js code
 let sketch = function (p) {
 
@@ -163,7 +182,7 @@ let sketch = function (p) {
     const x = p.mouseX;
     const y = p.mouseY;
 
-    //Retrieves data from JSON and turn it into text
+    //Retrieves data from JSON and turns it into text
     p.noStroke();
     const curColorData = p.random(risoColors);
     const curColor = p.color(curColorData.hex);
@@ -210,22 +229,3 @@ jQuery(".playBut").click(function () {
   });
   return false;
 });
-
-//Display images on click
-function ImgOnClick(headelems) {
-  // Insert images from array into image block on click
-  if (elem.length !== "" && jpgarray.length !== "") {
-    jQuery(headelems).click(function () {
-      for (let i = 0; i < elem.length; i += 1) {
-        let rando = Math.floor(Math.random() * jpgarray.length);
-        elem[i].src = jpgarray[rando];
-      };
-      jQuery(".myPicture").css("display", "inherit");
-      jQuery(".myPicture").css("visibility", "visible");
-    });
-    return true
-  } else {
-    return false
-  }
-};
-ImgOnClick(".how, .to, .feel, .more, .at");
