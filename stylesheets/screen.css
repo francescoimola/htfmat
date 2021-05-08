@@ -17,9 +17,9 @@ title {
 /* line 36, ../sass/screen.scss */
 html,
 body {
-  background: #F7F2CB;
-  width: 100%;
-  height: 100%;
+  background: #C2B766;
+  width: 102vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
   overflow-y: auto;
@@ -57,7 +57,7 @@ body {
   width: 1em;
 }
 
-/* line 99, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 *,
 *:before,
 *:after {
@@ -71,7 +71,7 @@ body {
 Play Button
 
 */
-/* line 116, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 .container {
   display: inherit;
   visibility: visible;
@@ -86,14 +86,14 @@ Play Button
   z-index: 5;
 }
 
-/* line 133, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 .playBut {
   /*  border: 1px solid red;*/
   display: inline-block;
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
-/* line 139, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 .playBut img {
   width: 100%;
   height: auto;
@@ -104,25 +104,25 @@ Play Button
 Main Text styles
 
 */
-/* line 156, ../sass/screen.scss */
+/* line 155, ../sass/screen.scss */
 a {
   color: inherit;
   font-weight: inherit;
   text-decoration: none;
 }
 
-/* line 165, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 small {
   font-size: calc(8px + 1vw);
   line-height: initial;
 }
 
-/* line 173, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 .emphasis {
   font-style: italic;
 }
 
-/* line 180, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 .nobr {
   white-space: nowrap;
 }
@@ -132,7 +132,7 @@ small {
 Header
 
 */
-/* line 192, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 header,
 .header,
 header h1 {
@@ -143,7 +143,7 @@ header h1 {
   letter-spacing: inherit;
 }
 
-/* line 208, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 h1.how {
   position: fixed;
   top: 0.1em;
@@ -152,7 +152,7 @@ h1.how {
   z-index: 4;
 }
 
-/* line 218, ../sass/screen.scss */
+/* line 217, ../sass/screen.scss */
 h1.to {
   position: fixed;
   top: 0.1em;
@@ -162,7 +162,7 @@ h1.to {
   z-index: 4;
 }
 
-/* line 229, ../sass/screen.scss */
+/* line 228, ../sass/screen.scss */
 h1.feel {
   position: fixed;
   top: 0.1em;
@@ -171,7 +171,7 @@ h1.feel {
   z-index: 4;
 }
 
-/* line 239, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 h1.more {
   position: fixed;
   bottom: 0.1em;
@@ -180,7 +180,7 @@ h1.more {
   z-index: 4;
 }
 
-/* line 249, ../sass/screen.scss */
+/* line 248, ../sass/screen.scss */
 h1.at {
   position: fixed;
   bottom: 0.1em;
@@ -190,7 +190,7 @@ h1.at {
   z-index: 4;
 }
 
-/* line 260, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 h1.home {
   position: fixed;
   bottom: 0.1em;
@@ -204,7 +204,7 @@ h1.home {
 Position images
 
 */
-/* line 276, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 header .myPicture {
   display: none;
   visibility: hidden;
@@ -225,7 +225,7 @@ header .myPicture {
 Main (POEM)
 
 */
-/* line 302, ../sass/screen.scss */
+/* line 301, ../sass/screen.scss */
 .main {
   visibility: hidden;
   display: none;
@@ -241,7 +241,7 @@ Main (POEM)
   font-variant-ligatures: normal;
 }
 
-/* line 324, ../sass/screen.scss */
+/* line 323, ../sass/screen.scss */
 p {
   margin: 0;
   padding: 0.4em;
@@ -254,47 +254,47 @@ Set up Responsive Text
 
 */
 @media (max-width: 641px) {
-  /* line 344, ../sass/screen.scss */
+  /* line 343, ../sass/screen.scss */
   header h1,
   .header h1 {
     font-size: calc(14px + 4vw);
   }
 
-  /* line 352, ../sass/screen.scss */
+  /* line 351, ../sass/screen.scss */
   .myPicture {
     width: 50%;
     height: auto;
   }
 
-  /* line 360, ../sass/screen.scss */
+  /* line 359, ../sass/screen.scss */
   .main {
     padding: 0 5% 0 5%;
   }
 
-  /* line 367, ../sass/screen.scss */
+  /* line 366, ../sass/screen.scss */
   footer,
   .footer {
     padding: 0 5% 0 5%;
   }
 }
 @media (min-width: 641px) {
-  /* line 382, ../sass/screen.scss */
+  /* line 381, ../sass/screen.scss */
   header h1,
   .header h1 {
     font-size: calc(14px + 3vw);
   }
 
-  /* line 390, ../sass/screen.scss */
+  /* line 389, ../sass/screen.scss */
   .myPicture {
     width: 25%;
   }
 
-  /* line 397, ../sass/screen.scss */
+  /* line 396, ../sass/screen.scss */
   .main {
     padding: 0 15% 0 15%;
   }
 
-  /* line 404, ../sass/screen.scss */
+  /* line 403, ../sass/screen.scss */
   footer,
   .footer {
     padding: 0 15% 0 15%;
@@ -305,7 +305,7 @@ Set up Responsive Text
 Footer 
 
 */
-/* line 420, ../sass/screen.scss */
+/* line 419, ../sass/screen.scss */
 .footer {
   background-color: none;
   width: 100%;
@@ -321,9 +321,9 @@ Footer
 Vertical Line 
 
 */
-/* line 438, ../sass/screen.scss */
+/* line 437, ../sass/screen.scss */
 .vline {
-  border-left: 1px solid #F7F2CB;
+  border-left: 1px solid #C2B766;
   height: 4em;
   text-align: center;
   transform: translate(50%);
@@ -357,7 +357,7 @@ Vertical Line
 Assign Fade-in Animation
 
 */
-/* line 494, ../sass/screen.scss */
+/* line 493, ../sass/screen.scss */
 p,
 h1 {
   -webkit-animation: fadein .2s forwards ease-out;
@@ -369,7 +369,7 @@ h1 {
 Hover 
 
 */
-/* line 509, ../sass/screen.scss */
+/* line 508, ../sass/screen.scss */
 h1.how:hover,
 h1.how.hover,
 h1.to:hover,
