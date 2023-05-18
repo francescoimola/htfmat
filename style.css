@@ -8,7 +8,7 @@ title {
 
 html,
 body {
-  background: #C2B766;
+  background: #f8f8f8;
   width: 102vw;
   height: 100vh;
   margin: 0;
@@ -128,7 +128,7 @@ Header
 header,
 .titles,
 header h1 {
-  color: #005248;
+  color: #010409;
   margin: 0;
   padding: 0;
   line-height: 1.2em;
@@ -237,7 +237,7 @@ Main (POEM)
 p {
   margin: 0;
   padding: 0.4em 0.4em 4em 0.4em;
-  text-shadow: 3px 3px 3px rgba(0, 20, 18, 0.8);
+  text-shadow: -1px 0 #010409, 0 1px #010409, 1px 0 #010409, 0 -1px #010409;
 }
 
 /*
