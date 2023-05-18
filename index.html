@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" viewport-fit="cover">
   <meta charset="utf-8">
   <title>How to Feel More at Home</title>
-  <base target="_self">
-
-  <!--[if IE]>
-    <link type="css" href="./stylesheets/ie.css" media="screen, projection" rel="stylesheet" />
-  <![endif]-->
 
   <link rel="icon" href="./media/favicon.ico" type="image/x-icon">
+
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-  <link rel="stylesheet" type="text/css" href="stylesheets/screen.css" media="screen, projection" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+ 
+  <!-- Load Tonal -->
+  <script src="https://cdn.jsdelivr.net/npm/tonal/browser/tonal.min.js"></script>
+
+  <!-- Load Tone.js and StartAudioContext -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js" integrity="sha512-Siyxh4gyNM5SaERNa9BOZSPcu/auHyFUWn9OVFD7MxI3/dVPQklE7tfqS+pLmPHF1zo6UdDaJAp/thihrf0c7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="./StartAudioContext.js"></script>
+
 </head>
 
 <body>
@@ -24,7 +27,7 @@
   </div>
 
   <!-- Header -->
-  <header class="header" style="animation-delay: 0.1s">
+  <header class="titles" style="animation-delay: 0.1s" id="hd">
     <h1 class="how">HOW</h1>
     <img src="img/img (29).jpg" class="myPicture" alt="">
     <h1 class="to">TO</h1>
@@ -41,119 +44,115 @@
   <!-- / Header -->
 
   <!-- Main -->
-  <main class="main" id="poem" role="main">
-    <p class="paragraph">Have you ever thought that the idea you have about what home means to you could <nobr>forever
-        change?</nobr>
+  <main class="poetry" id="poem">
+    <p>Have you ever thought that the idea you have about what home means to you could forever
+        change?
     </p>
-    <p class="paragraph">Home is something you ran away from or maybe home is something you had your whole life. But
+    <p>Home is something you ran away from or maybe home is something you had your whole life. But
       home will always be
-      where your <nobr>story started.</nobr>
+      where your story started.
     </p>
-    <p class="paragraph">Home is not a place; it is a feeling&mdash;says Instagram post with <nobr>641 likes.</nobr>
+    <p>Home is not a place; it is a feeling&mdash;says Instagram post with 641 likes.
     </p>
-    <p class="paragraph">Home is where you can be yourself&mdash;at ease, ready to try out <nobr>new stuff.</nobr> Cook
+    <p>Home is where you can be yourself&mdash;at ease, ready to try out new stuff. Cook
       omelettes, attempt
-      baking, burn the tip of your hair or cut all of <nobr>your hair off.</nobr>
+      baking, burn the tip of your hair or cut all of your hair off.
     </p>
-    <p class="paragraph">At home, you can heal.</p>
-    <p class="paragraph">But how much of this <nobr>is true?</nobr>
+    <p>At home, you can heal.</p>
+    <p>But how much of this is true?
     </p>
-    <p class="paragraph">For too many people, being happy at home is <nobr>an abstract idea.</nobr> For some, home
+    <p>For too many people, being happy at home is an abstract idea. For some, home
       represents conflict,
-      loss, <nobr>neglect, trauma.</nobr>
+      loss, neglect, trauma.
     </p>
-    <p class="paragraph">Like ghosts who cannot escape, these experiences endure <nobr>in isolation.</nobr>
+    <p>Like ghosts who cannot escape, these experiences endure in isolation.
     </p>
-    <p class="paragraph">In the secrecy of the home, people are forced to grieve loss and deal with conflict while
-      living in <nobr>its
-        memory.</nobr>
-      <br>I know it from experience. I mean, I grew up in <nobr>that environment.</nobr>
+    <p>In the secrecy of the home, people are forced to grieve loss and deal with conflict while
+      living in its
+        memory.
+      <br>I know it from experience. I mean, I grew up in that environment.
     </p>
-    <p class="paragraph">As Mary Douglas describes in her paper:
-      <span class="emphasis">The Idea of a Home: <nobr>A Kind of Space</nobr></span>
-      , a home is not only a space full of domestic things, it also has some structure <nobr>in time.</nobr>
+    <p>As Mary Douglas describes in her paper:
+      <span class="emphasis">The Idea of a Home: A Kind of Space</span>
+      , a home is not only a space full of domestic things, it also has some structure in time.
     </p>
-    <p class="paragraph">From set meal times to rotational access to fixed spaces such as the bathroom or the fridge:
+    <p>From set meal times to rotational access to fixed spaces such as the bathroom or the fridge:
       like a tyran, the
       home demands coordination, synchrony even. Its terms are rigid and its functioning exercises an authoritarian
-      control over <nobr>mind and body.</nobr>
+      control over mind and body.
     </p>
-    <p class="paragraph">Remember, a home owes you nothing. Do not expect happiness, comfort, and safe shelter either.
+    <p>Remember, a home owes you nothing. Do not expect happiness, comfort, and safe shelter either.
       You can feel safe,
-      comfortable, and happy in a camper, caravan, or hotel&mdash;but <nobr>are these homes?</nobr>
+      comfortable, and happy in a camper, caravan, or hotel&mdash;but are these homes?
     </p>
-    <p class="paragraph">Our first home is our mother's womb. When we enter the external world our <nobr>
+    <p>Our first home is our mother's womb. When we enter the external world our 
         &quot;residence&quot; changes.
-      </nobr> But wherever we are, home always starts with <nobr>our body.</nobr>
+       But wherever we are, home always starts with our body.
     </p>
-    <p class="paragraph">As we age, our relationship with our body changes. Sometimes we look in the mirror and feel
+    <p>As we age, our relationship with our body changes. Sometimes we look in the mirror and feel
       disoriented
-      &mdash;we look for a person that no <nobr>longer exists.</nobr> It is no wonder we find it difficult to adjust
-      to the environment <nobr>around us.</nobr>
+      &mdash;we look for a person that no longer exists. It is no wonder we find it difficult to adjust
+      to the environment around us.
     </p>
-    <p class="paragraph">Thoughts, perspectives, opinions, generational gaps they all find their way inside the home
+    <p>Thoughts, perspectives, opinions, generational gaps they all find their way inside the home
       through the broken
-      window creeks and sit <nobr>on the wall.</nobr><br>People inside the home become distant. We close our doors in
-      the hope that someone will knock and say <nobr>&quot;I am here&quot;.</nobr>
+      window creeks and sit on the wall.<br>People inside the home become distant. We close our doors in
+      the hope that someone will knock and say &quot;I am here&quot;.
     </p>
-    <p class="paragraph">Yet, a home should be that place where you can start over and over every day. But it takes some
+    <p>Yet, a home should be that place where you can start over and over every day. But it takes some
       reconfiguration
-      to feel at home again, especially after leaving the home we <nobr>grew up in.</nobr>
+      to feel at home again, especially after leaving the home we grew up in.
     </p>
-    <p class="paragraph">Feeling at home is the reward we experience after years of work, physical <nobr>and emotional.
-      </nobr> Perhaps,
-      you always felt at home or never questioned that feeling. Though it is a privilege <nobr>few have.</nobr>
+    <p>Feeling at home is the reward we experience after years of work, physical and emotional.
+       Perhaps,
+      you always felt at home or never questioned that feeling. Though it is a privilege few have.
     </p>
-    <p class="paragraph">What can I do to feel more <nobr>at home?</nobr><br>&mdash;you <nobr>might ask.</nobr>
+    <p>What can I do to feel more at home?<br>&mdash;you might ask.
     </p>
-    <p class="paragraph">It is a question I have been trying hard to answer&mdash;and while I did, I relocated more
-      times than I <nobr>
+    <p>It is a question I have been trying hard to answer&mdash;and while I did, I relocated more
+      times than I 
         wanted
-        to.</nobr>
+        to.
     </p>
-    <p class="paragraph">Why is it that every time I get to one place, I cannot wait to move <nobr>someplace else?
-      </nobr>
+    <p>Why is it that every time I get to one place, I cannot wait to move someplace else?
+      
     </p>
-    <p class="paragraph">I learned that feeling at home is about loving yourself and letting go. Three years of therapy
+    <p>I learned that feeling at home is about loving yourself and letting go. Three years of therapy
       gone by, and I
-      have journeyed within as much as I <nobr>did outward.</nobr>
+      have journeyed within as much as I did outward.
     </p>
-    <p class="paragraph"><span class="emphasis">They said</span>: Take some time alone each day and use this time to
-      check in with <nobr>
-        your emotions.</nobr>
+    <p><span class="emphasis">They said</span>: Take some time alone each day and use this time to
+      check in with 
+        your emotions.
     </p>
-    <p class="paragraph"><span class="emphasis">I said</span>: Okay&mdash;but I am still learning about how the
+    <p><span class="emphasis">I said</span>: Okay&mdash;but I am still learning about how the
       environment around me
-      <nobr>makes me feel.</nobr>
+      makes me feel.
     </p>
-    <p class="paragraph"><span class="emphasis">They said</span>: Develop faith in your <nobr>learning ability.</nobr>
+    <p><span class="emphasis">They said</span>: Develop faith in your learning ability.
     </p>
-    <p class="paragraph"><span class="emphasis">I said</span>: How can I learn to expand my understanding of what home
-      <nobr>means to me?
-      </nobr>
+    <p><span class="emphasis">I said</span>: How can I learn to expand my understanding of what home
+      means to me?
+      
     </p>
     <p><span class="emphasis">They said</span>: Think of this process like completing a puzzle. Believe that, even
       though you may not know all you need to feel more at home, if you simply tackle a section of the puzzle
       and learn from that, you will learn enough to solve the next section&mdash;and so on,
-      <nobr>until you are done.</nobr>
+      until you are done.
     </p>
 
     <!-- Footer -->
     <br><br>
-    <div class="footer" id="fa" role="contentinfo">
-      <small style="animation-delay: 0.2s;">Written and coded by Francesco Imola. <nobr>Published 29 December 2020</nobr><br><br>
-        <i>"How to feel more at home"</i> is part of an ongoing project articulating personal ideas of home, what (and
-        who)
-        makes one, and how to find meaning living inbetween homes.
-        <br><br>
+    <div class="footer" id="fa">
+      <small style="animation-delay: 0.2s;">Written and coded by Francesco Imola. Published 29 December 2020<br><br>
 
         <a href="https://www.are.na/francesco-imola-2o2ng4qooxm/how-to-feel-more-at-home"
           style="text-decoration: underline;">Explore the "How to feel more
-          at home" <nobr>are.na channel</nobr></a>.
+          at home" Are.na channel</a>.
         <br><br>
 
         This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-          Commons Attribution-ShareAlike 4.0 <nobr>International License</nobr></a>.
+          Commons Attribution-ShareAlike 4.0 International License</a>.
         <br>
         <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License"
             style="border-width:0; width: 5em" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a></small>
@@ -165,25 +164,13 @@
   </main>
 
   <!-- Load jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
   <!-- Load p5.js -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
-    integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
-    crossorigin="anonymous"></script>
-
-  <!-- Load Tone.js and StartAudioContext -->
-  <script type="text/javascript" src="./node_modules/tone/build/Tone.js"></script>
-  <script type="text/javascript" src="./node_modules/startaudiocontext/StartAudioContext.js"></script>
-
-  <!-- Load tonal -->
-  <script src="https://cdn.jsdelivr.net/npm/@tonaljs/tonal/browser/tonal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
 
   <!-- Load av.js -->
-  <script type="text/javascript" src="./app/av.js"></script>
-
-  <!-- Livereload -->
-  <!-- <script src="http://localhost:35729/livereload.js"></script> -->
+  <script type="text/javascript" src="./app.js"></script>
 
 </body>
 

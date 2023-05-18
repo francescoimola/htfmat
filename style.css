@@ -1,0 +1,386 @@
+* {
+  scroll-margin: 2em;
+}
+
+title {
+  display: none;
+}
+
+html,
+body {
+  background: #C2B766;
+  width: 102vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overscroll-behavior: auto;
+  scroll-behavior: smooth;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  resize: both;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+  text-align: center;
+  justify-content: center;
+  align-content: start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-display: swap;
+  -webkit-font-display: swap;
+  color: #FFFF00;
+  font-variant-ligatures: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 93, ../sass/screen.scss */
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+/* line 98, ../sass/screen.scss */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* 
+
+Play Button
+
+*/
+/* line 115, ../sass/screen.scss */
+.container {
+  display: inherit;
+  visibility: visible;
+  position: fixed;
+  width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+}
+
+/* line 132, ../sass/screen.scss */
+.playBut {
+  /*  border: 1px solid red;*/
+  display: inline-block;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+/* line 138, ../sass/screen.scss */
+.playBut img {
+  width: 100%;
+  height: auto;
+}
+
+/*
+
+Main Text styles
+
+*/
+/* line 155, ../sass/screen.scss */
+a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+/* line 164, ../sass/screen.scss */
+small {
+  font-size: calc(8px + 1vw);
+  line-height: initial;
+}
+
+/* line 172, ../sass/screen.scss */
+.emphasis {
+  font-style: italic;
+}
+
+/* line 179, ../sass/screen.scss */
+.nobr {
+  white-space: nowrap;
+}
+
+/*
+
+Header
+
+*/
+/* line 191, ../sass/screen.scss */
+header,
+.titles,
+header h1 {
+  color: #005248;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2em;
+  letter-spacing: inherit;
+}
+
+/* line 207, ../sass/screen.scss */
+h1.how {
+  position: fixed;
+  top: 0.1em;
+  left: 0.1em;
+  text-align: left;
+  z-index: 4;
+}
+
+/* line 217, ../sass/screen.scss */
+h1.to {
+  position: fixed;
+  top: 0.1em;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 4;
+}
+
+/* line 228, ../sass/screen.scss */
+h1.feel {
+  position: fixed;
+  top: 0.1em;
+  right: 0.1em;
+  text-align: right;
+  z-index: 4;
+}
+
+/* line 238, ../sass/screen.scss */
+h1.more {
+  position: fixed;
+  bottom: 0.1em;
+  left: 0.1em;
+  text-align: left;
+  z-index: 4;
+}
+
+/* line 248, ../sass/screen.scss */
+h1.at {
+  position: fixed;
+  bottom: 0.1em;
+  left: 50vw;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 4;
+}
+
+/* line 259, ../sass/screen.scss */
+h1.home {
+  position: fixed;
+  bottom: 0.1em;
+  right: 0.1em;
+  text-align: right;
+  z-index: 4;
+}
+
+/* 
+
+Position images
+
+*/
+/* line 275, ../sass/screen.scss */
+header .myPicture {
+  display: none;
+  visibility: hidden;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  float: left;
+  right: auto;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  border-radius: 0.5em;
+}
+
+/*
+
+Main (POEM)
+
+*/
+/* line 301, ../sass/screen.scss */
+.poetry {
+  visibility: hidden;
+  display: none;
+  z-index: 3;
+  animation-delay: 0.2s;
+  grid-column-start: auto;
+  grid-column-end: auto;
+  grid-row-start: auto;
+  grid-row-end: auto;
+  margin: 3em 0 0 0;
+  font-size: calc(14px + 2vw);
+  line-height: 1.2em;
+  font-variant-ligatures: normal;
+}
+
+/* line 323, ../sass/screen.scss */
+p {
+  margin: 0;
+  padding: 0.4em 0.4em 4em 0.4em;
+  text-shadow: 3px 3px 3px rgba(0, 20, 18, 0.8);
+}
+
+/*
+
+Set up Responsive Text
+
+*/
+@media (max-width: 641px) {
+
+  /* line 343, ../sass/screen.scss */
+  header h1,
+  .titles h1 {
+    font-size: calc(14px + 4vw);
+  }
+
+  /* line 351, ../sass/screen.scss */
+  .myPicture {
+    width: 50%;
+    height: auto;
+  }
+
+  /* line 359, ../sass/screen.scss */
+  .poetry {
+    padding: 0 5% 0 5%;
+  }
+
+  /* line 366, ../sass/screen.scss */
+  footer,
+  .footer {
+    padding: 0 5% 0 5%;
+  }
+}
+
+@media (min-width: 641px) {
+
+  /* line 381, ../sass/screen.scss */
+  header h1,
+  .titles h1 {
+    font-size: calc(14px + 3vw);
+  }
+
+  /* line 389, ../sass/screen.scss */
+  .myPicture {
+    width: 25%;
+  }
+
+  /* line 396, ../sass/screen.scss */
+  .poetry {
+    padding: 0 15% 0 15%;
+  }
+
+  /* line 403, ../sass/screen.scss */
+  footer,
+  .footer {
+    padding: 0 15% 0 15%;
+  }
+}
+
+/* 
+
+Footer 
+
+*/
+/* line 419, ../sass/screen.scss */
+.footer {
+  background-color: none;
+  width: 100%;
+  text-align: center;
+  color: #005248;
+  margin: 0 auto 8em auto;
+  padding: 0;
+  z-index: 2;
+}
+
+/* 
+
+Vertical Line 
+
+*/
+/* line 437, ../sass/screen.scss */
+.vline {
+  border-left: 1px solid #C2B766;
+  height: 4em;
+  text-align: center;
+  transform: translate(50%);
+  opacity: 0;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 1.5vw;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 1.5vw;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+/* 
+
+Assign Fade-in Animation
+
+*/
+/* line 493, ../sass/screen.scss */
+p,
+h1 {
+  -webkit-animation: fadein .2s forwards ease-out;
+  animation: fadein .2s forwards ease-out;
+}
+
+/* 
+
+Hover 
+
+*/
+/* line 508, ../sass/screen.scss */
+h1.how:hover,
+h1.how.hover,
+h1.to:hover,
+h1.to.hover,
+h1.feel:hover,
+h1.feel.hover,
+h1.more:hover,
+h1.more.hover,
+h1.at:hover,
+h1.at.hover,
+h1.home:hover,
+h1.home.hover {
+  font-style: italic;
+}
